@@ -1,0 +1,141 @@
+<div class="content text-center">
+  <div class="tituloPagina"><h1>Automatech</h1></div>
+  <!-- Seção de Iluminação -->
+  <div class="container">
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+      <div class="col">
+        <div class="card card-inicio h-100">
+          <div class="card-header text-center"><h4>Iluminação</h4></div>
+          <div class="card-body">
+            <!-- Controle de lâmpadas -->
+            <div class="container">
+              <div class="row row-cols-4 row-cols-md-4">
+                <!-- Lâmpada 1 -->
+                <div class="col-sm">
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault1" [(ngModel)]="ligaLampada1" (ngModelChange)="alteradoCheckLampada(1)">
+                  </div>
+                  <!-- Slider para ajustar o brilho da lâmpada 1 -->
+                  <div>
+                    <input type="range" min="0" max="100" step="10" orient="vertical" [disabled]="!ligaLampada1" [(ngModel)]="range1" (ngModelChange)="alteradoRange(1)"/>
+                  </div>
+                  <!-- Valor do brilho da lâmpada 1 -->
+                  <div>
+                    <h2><span class="badge bg-secondary bg-lampada">{{lampada1}}</span></h2>
+                  </div>
+                </div>
+                <!-- Lâmpada 2 -->
+                <div class="col-sm">
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault2" [(ngModel)]="ligaLampada2" (ngModelChange)="alteradoCheckLampada(2)">
+                  </div>
+                  <!-- Slider para ajustar o brilho da lâmpada 2 -->
+                  <div>
+                    <input type="range" min="0" max="100" step="10" orient="vertical"  [disabled]="!ligaLampada2" [(ngModel)]="range2" (ngModelChange)="alteradoRange(2)"/>
+                  </div>
+                  <!-- Valor do brilho da lâmpada 2 -->
+                  <div>
+                    <h2><span class="badge bg-secondary bg-lampada">{{lampada2}}</span></h2>
+                  </div>
+                </div>
+                <!-- Lâmpada 3 -->
+                <div class="col-sm">
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault3" [(ngModel)]="ligaLampada3" (ngModelChange)="alteradoCheckLampada(3)">
+                  </div>
+                  <!-- Slider para ajustar o brilho da lâmpada 3 -->
+                  <div>
+                    <input type="range" min="0" max="100" step="10" orient="vertical"  [disabled]="!ligaLampada3" [(ngModel)]="range3" (ngModelChange)="alteradoRange(3)"/>
+                  </div>
+                  <!-- Valor do brilho da lâmpada 3 -->
+                  <div>
+                    <h2><span class="badge bg-secondary bg-lampada">{{lampada3}}</span></h2>
+                  </div>
+                </div>
+                <!-- Lâmpada 4 -->
+                <div class="col-sm">
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault4" [(ngModel)]="ligaLampada4" (ngModelChange)="alteradoCheckLampada(4)">
+                  </div>
+                  <!-- Slider para ajustar o brilho da lâmpada 4 -->
+                  <div>
+                    <input type="range" min="0" max="100" step="10" orient="vertical" [disabled]="!ligaLampada4" [(ngModel)]="range4" (ngModelChange)="alteradoRange(4)"/>
+                  </div>
+                  <!-- Valor do brilho da lâmpada 4 -->
+                  <div>
+                    <h2><span class="badge bg-secondary bg-lampada">{{lampada4}}</span></h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Opção para desligar todas as lâmpadas -->
+          </div>
+          <div class="card-footer">
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" id="desligarLampadas" [(ngModel)]="ligaTodasLampadas" (ngModelChange)="ligarTodasLampadas()">
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Seção de Climatização -->
+      <div class="col">
+        <div class="card card-inicio h-100">
+          <div class="card-header text-center"><h4>Climatização</h4></div>
+
+          <div class="container h-100">
+            <!-- Controle do ar-condicionado -->
+            <div [ngClass]="{'row-cols-md-3': statusCarregado}" class="row row-cols-1 text-center d-flex justify-content-between align-items-center h-100 pb-3 my-2row row-cols-1 row-cols-md-1 d-flex justify-content-between align-items-center h-100 pb-3 my-2">
+              <!-- Botão para diminuir a temperatura do ar-condicionado -->
+              <div class="col-sm" *ngIf="statusCarregado">
+                <button class="btn btn-primary btn-lg" href="#" role="button" (click)="diminuirAr()" [disabled]="!arCondicionadoLigado || valorAr <= minimoValorAr">-1</button>
+              </div>
+              <!-- Valor da temperatura do ar-condicionado -->
+              <div class="col-sm" *ngIf="statusCarregado && arCondicionadoLigado">
+                <div class="badge-ar-condicionado">
+                  <span class="badge bg-secondary bg-ar" *ngIf="arCondicionadoLigado"><h2>{{valorAr}}</h2></span>
+                </div>
+              </div>
+              <!-- Mensagem de ar-condicionado desligado -->
+              <div class="col-sm" *ngIf="statusCarregado && !arCondicionadoLigado">
+                <div class="badge-ar-condicionado">
+                  <span class="badge bg-danger" *ngIf="!arCondicionadoLigado"><h2>Desligado</h2></span>
+                </div>
+              </div>
+              <!-- Botão para aumentar a temperatura do ar-condicionado -->
+              <div class="col-sm" *ngIf="statusCarregado">
+                <button class="btn btn-primary btn-lg" href="#" role="button" (click)="aumentarAr()" [disabled]="!arCondicionadoLigado || valorAr >= maximoValorAr">+1</button>
+              </div>
+              <!-- Botão de carregamento enquanto o sistema está ocupado -->
+              <div class="col-sm" *ngIf="!statusCarregado">
+                <button class="btn btn-primary" type="button" disabled>
+                  <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                  Loading...
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Opção para ligar/desligar o ar-condicionado -->
+          <div class="card-footer">
+            <div class="form-check form-switch">
+              <input class="form-check-input" [disabled]="!statusCarregado" type="checkbox" id="desligarAr" [(ngModel)]="arCondicionadoLigado" (ngModelChange)="ligaDesligaAr()">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Exibição de alertas -->
+    <div *ngFor="let alerta of alertas">
+      <div [ngClass]="alerta.tipo" class="alert alert-dismissible fade show mt-4" role="alert">
+        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:">
+          <use *ngIf="alerta.tipo == 'alert-success'" xlink:href="#check-circle-fill"/>
+          <use *ngIf="alerta.tipo == 'alert-danger'" xlink:href="#exclamation-triangle-fill"/>
+        </svg>
+        {{alerta.mensagem}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<router-outlet></router-outlet>

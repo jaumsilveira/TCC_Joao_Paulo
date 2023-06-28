@@ -1,0 +1,43 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css2?family=Foldit:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: url("imagens/fundo_tela.webp");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100vh;
+  background-color: black;
+  background-repeat: no-repeat;
+}
+
+.content {
+  min-height: 100vh;
+  padding-top: 10vh;
+}
+
+.footer {
+  border: none;
+}
+
+.footer .card-body {
+  background-color: black;
+  color: white;
+}
+
+.imagemContato {
+  background: url("imagens/ContatoZap.jpg");
+  height: 349px;
+  width: 304px;
+  background-size: cover;
+  display: inline-block;
+}

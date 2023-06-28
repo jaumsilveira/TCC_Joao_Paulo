@@ -1,0 +1,49 @@
+
+.tituloPagina h1 {
+  color: white;
+  font-family: 'Foldit', cursive;
+  font-size: 6rem !important;
+  text-shadow: 3px 3px 20px black;
+}
+
+.card-inicio {
+  background-color: rgba(226, 229, 232, 0.73);
+}
+
+.card-inicio .card-header {
+  color: white;
+  font-family: 'Righteous', cursive;
+  text-shadow: 2px 2px 4px black;
+  background-color: #041f677a;
+}
+
+.card-inicio .card-footer {
+  background-color: #202b2aa1;
+}
+
+input[type=range][orient=vertical]
+{
+  writing-mode: bt-lr; /* IE */
+  -webkit-appearance: slider-vertical; /* Chromium */
+  width: 8px;
+  height: 175px;
+  padding: 0 5px;
+}
+
+.form-check {
+  display: inline-block !important;
+}
+
+.form-check-input {
+  width: 4em;
+  height: 1.5em;
+}
+
+.bg-ar {
+  background-color: rgba(17, 172, 72, 0.69) !important;
+  width: 8rem;
+}
+
+.badge-ar-condicionado {
+
+}
